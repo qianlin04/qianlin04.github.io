@@ -116,6 +116,10 @@
 			margin: 0;
 		}
 
+		.about-text + .about-text {
+			margin-top: 12px;
+		}
+
 		.news-list {
 			font-size: 16px;
 			line-height: 1.7;
@@ -175,6 +179,54 @@
 			color: #666;
 		}
 
+		.research-item {
+			display: flex;
+			align-items: center;
+			gap: 22px;
+		}
+
+		.research-item + .research-item {
+			margin-top: 20px;
+			padding-top: 20px;
+			border-top: 1px solid #e5e5e5;
+		}
+
+		.research-image {
+			flex: 0 0 230px;
+		}
+
+		.research-image img {
+			display: block;
+			width: 100%;
+			height: auto;
+			max-height: 160px;
+			object-fit: contain;
+		}
+
+		.research-content {
+			flex: 1;
+			min-width: 0;
+		}
+
+		.research-title {
+			font-size: 16px;
+			font-weight: 600;
+			margin-bottom: 6px;
+		}
+
+		.research-description {
+			font-size: 14px;
+			line-height: 1.6;
+			margin: 0;
+		}
+
+		.research-meta {
+			font-size: 13px;
+			color: #777;
+			margin-top: 6px;
+			font-style: italic;
+		}
+
 		@media (max-width: 760px) {
 			.top-card {
 				flex-direction: column;
@@ -196,6 +248,23 @@
 
 			.section-title {
 				font-size: 24px;
+			}
+		}
+
+		@media (max-width: 600px) {
+			.research-item {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 12px;
+			}
+
+			.research-image {
+				flex: none;
+				width: 100%;
+			}
+
+			.research-image img {
+				max-height: 200px;
 			}
 		}
 	</style>
@@ -220,7 +289,8 @@
 			<div class="links">
 				<a href="CV.pdf">CV</a> &bull;
 				<a href="https://scholar.google.com/citations?hl=en&user=qgen0EkAAAAJ">Google Scholar</a> &bull;
-				<a href="https://github.com/qianlin04">GitHub</a>
+				<a href="https://github.com/qianlin04">GitHub</a> &bull;
+				<a href="https://www.linkedin.com/in/qian-lin-0188433aa/">LinkedIn</a>
 			</div>
 		</div>
 	</div>
@@ -229,11 +299,18 @@
 		<div class="section-title">About</div>
 		<div class="section-card">
 			<p class="about-text">
-				I am currently a first-year Ph.D. student in Computer Science at the Kahlert School of Computing, advised by Dr. <a href="https://users.cs.utah.edu/~dsbrown/index.html">Daniel S. Brown</a>. Previously, I earned my master’s degree from Sun Yat-sen University in China.
-				
-				My research focuses on reinforcement learning, with an emphasis on learning from offline data and human feedback, safe and constrained decision-making, and multi-objective optimization. 
-				
-				More recently, I have been working on model interpretability in human feedback alignment systems.
+				I am a Ph.D. student in Computer Science at the Kahlert School of Computing, University of Utah, advised by Dr. <a href="https://users.cs.utah.edu/~dsbrown/index.html">Daniel S. Brown</a>.
+				Previously, I received my master's degree from Sun Yat-sen University.
+			</p>
+
+			<p class="about-text">
+				My research interests broadly lie in reinforcement learning and the development of intelligent and reliable agents.
+				My previous work focused on offline reinforcement learning, safe decision-making, multi-objective optimization, and learning from human feedback.
+				More recently, my research explores the robustness of LLM alignment against preference poisoning and the behavioral interpretability of embodied AI systems.
+			</p>
+
+			<p class="about-text">
+				<strong>I am currently seeking research internship opportunities for Summer 2027. Please feel free to reach out!</strong>
 			</p>
 		</div>
 	</div>
@@ -242,19 +319,81 @@
 		<div class="section-title">Recent Updates</div>
 		<div class="section-card">
 			<ul class="news-list">
+				<li>[Nov, 2026] Presented our work on interpretable success and failure patterns in vision-language-action models at the <b>SPAIS Workshop at CoRL 2026</b>.</li>
 				<li>[Jun, 2026] Presented a poster on <b>Implicit Safety Alignment from Crowd Preferences</b> at <b>Utah AI Convergence 2026</b>; the poster was selected for a <b>Lightning Talk</b>.</li>
 				<li>[May, 2026] <b>Implicit Safety Alignment from Crowd Preferences</b> accepted by <b>ICML 2026</b>.</li>
 				<li>[May, 2026] <b>Multi-Modal, Multi-Environment Machine Teaching for Robust Reward Learning</b> accepted by <b>RLC 2026</b>.</li>
-				<li>[May, 2026] <b>Understanding the Effects of Neuron Dominance in Deep Reinforcement Learning</b> accepted by <b>TMLR</b>.</li>
+				<li>[May, 2026] <b>Understanding the Effects of Neuron Dominance in Deep Reinforcement Learning</b> accepted by <b>TMLR 2026</b>.</li>
 			</ul>
 		</div>
 	</div>
+
+	<div class="section">
+		<div class="section-title">Recent Research</div>
+		<div class="section-card">
+
+			<div class="research-item">
+				<div class="research-image">
+					<img src="imgs/llm_poisoning.png"
+						alt="Behavioral preference poisoning in LLM alignment">
+				</div>
+
+				<div class="research-content">
+					<div class="research-title">
+						Robustness of LLM Alignment to Preference Poisoning
+					</div>
+
+					<p class="research-description">
+						We investigate how behavioral preference poisoning affects different LLM alignment algorithms, particularly DPO and reward-model-based RLHF.
+						Our research explores the role of reward generalization and reward hacking in shaping policy behavior under poisoned preferences.
+					</p>
+
+					<div class="research-meta">
+						Ongoing Research
+					</div>
+				</div>
+			</div>
+
+			<div class="research-item">
+				<div class="research-image">
+					<img src="imgs/vla_behavior.png"
+						alt="Interpretable behavioral patterns in vision-language-action models">
+				</div>
+
+				<div class="research-content">
+					<div class="research-title">
+						Understanding Success and Failure in Embodied AI
+					</div>
+
+					<p class="research-description">
+						We investigate the internal representations of vision-language-action models during embodied task execution.
+						Using sparse autoencoders, we uncover interpretable behavioral patterns associated with policy success and failure and explore their utility for early failure prediction.
+					</p>
+
+					<div class="research-meta">
+						SPAIS Workshop at CoRL 2026
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 
 	<div class="section">
 		<div class="section-title">Publications</div>
 		<div class="section-card">
 			<table class="pubs">
 				<tbody>
+
+					<tr>
+						<td width="100%">
+							<div class="pub-title">Do VLAs Know They Will Fail? Interpretable Success and Failure Patterns in Physical AI Systems</div>
+							<div class="pub-meta">Christian A. Rogers*, <strong>Qian Lin*</strong>, Daniel S. Brown</div>
+							<div class="pub-meta"><em>SPAIS Workshop at CoRL 2026</em>.</div>
+							<div class="pub-links">[<a href="https://arxiv.org/abs/2610.32208">Paper</a>]</div>
+						</td>
+					</tr>
 
 					<tr>
 						<td width="100%">
@@ -304,7 +443,7 @@
 					<tr>
 						<td width="100%">
 							<div class="pub-title">Offline Multi-Agent Reinforcement Learning via In-Sample Sequential Policy Optimization</div>
-							<div class="pub-meta">Zongkai Liu, <strong>Qian Lin</strong>, Chao Yu, Xiawei WU, Yile Liang, Donghui Li, Xuetao Ding</div>
+							<div class="pub-meta">Zongkai Liu, <strong>Qian Lin</strong>, Chao Yu, Xiawei Wu, Yile Liang, Donghui Li, Xuetao Ding</div>
 							<div class="pub-meta"><em>AAAI 2025</em>.</div>
 							<div class="pub-links">[<a href="https://arxiv.org/abs/2412.07639">Paper</a>]</div>
 						</td>
@@ -348,6 +487,9 @@
 
 				</tbody>
 			</table>
+			<p style="font-size: 14px; color: #666; margin: 0;">
+				* indicates equal contribution.
+			</p>
 		</div>
 	</div>
 
@@ -372,7 +514,7 @@
 				<br><br>
 				I like electric guitar, movies, Chinese chess and table tennis.
 				<br><br>
-				I have been a member of the Duxing Volunteer Service Team since 2019, where I participate in animal rescue activities to assist stray cats and dogs.
+				From 2019 to 2025, I was a member of the Duxing Volunteer Service Team, where I participated in animal rescue activities to help stray cats and dogs.
 			</p>
 		</div>
 	</div>
@@ -382,7 +524,7 @@
 	</div>
 
 	<div class="footer">
-		Qian Lin <i>Last updated: May, 2026</i>
+		Qian Lin <i>Last updated: November, 2026</i>
 	</div>
 
 </div>
